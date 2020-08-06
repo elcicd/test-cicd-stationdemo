@@ -1,0 +1,12 @@
+- op: add
+  path: /objects/0/spec/template/spec/containers/0/env
+  value:
+    - name: SERVER_SERVLET_CONTEXT_PATH
+      value: ${SERVER_SERVLET_CONTEXT_PATH}
+
+- op: add
+  path: /parameters/0
+  value:
+    description: Spring Boot server.servlet.context-path override
+    displayName: server.servlet.context-path from application.properties
+    name: SERVER_SERVLET_CONTEXT_PATH

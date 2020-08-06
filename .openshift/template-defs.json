@@ -1,0 +1,28 @@
+{
+    "templates": [
+        {
+            "appName": "stationdemo",
+            "templateName": "dc-svc-template",
+            "file": "dc-svc-template.yaml",
+            "patchFile": "kustomize.patch",
+            "params": {
+                "SVC_PORT": 8080
+            },
+            "dev": {
+                "params": {
+                    "SERVER_SERVLET_CONTEXT_PATH": "/stationdemo-dev"
+                }
+            },
+            "qa": {
+                "params": {
+                    "SERVER_SERVLET_CONTEXT_PATH": "/stationdemo-qa"
+                }
+            },
+            "stg": {
+                "params": {
+                    "SERVER_SERVLET_CONTEXT_PATH": "/stationdemo-stg"
+                }
+            }
+        }
+    ]
+}
