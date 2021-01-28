@@ -3,7 +3,6 @@
         {
             "appName": "stationdemo",
             "templateName": "dc-svc-template",
-            "file": "dc-svc-template.yaml",
             "patchFile": "kustomize.patch",
             "params": {
                 "SVC_PORT": 8080
@@ -23,6 +22,13 @@
                     "SERVER_SERVLET_CONTEXT_PATH": "/stationdemo-stg"
                 }
             }
-        }
+        },
+		{
+			"appName": "stationdemo",
+			"templateName": "route-template"
+			"params": {
+				"SVC_PORT": 8080
+			}
+		}
     ]
 }
