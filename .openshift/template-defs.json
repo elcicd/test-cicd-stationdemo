@@ -2,7 +2,7 @@
     "templates": [
         {
             "appName": "stationdemo",
-            "templateName": "dc-svc-template",
+            "templateName": "deploy-svc-template",
             "patchFile": "kustomize.patch",
             "params": {
                 "SVC_PORT": 8080
