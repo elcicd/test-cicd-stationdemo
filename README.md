@@ -1,7 +1,9 @@
 # test-cicd-stationdemo
 
-spring boot test project for el-cicd
+Spring Boot test project for el-cicd
 
-Test: https://stationdemo-<env>.apps-crc.testing/stationdemo-<env>/stations
+Station Queries: https://stationdemo-<env>.apps-crc.testing/stationdemo-<env>/stations
 
-Prod: https://stationdemo.apps-crc.testing/stationdemo/stations
+Health Check: https://stationdemo-<env>.apps-crc.testing/stationdemo-<env>/actuator/health/StationHealthCheck
+
+Prod: Remove '-<env>' from above links
