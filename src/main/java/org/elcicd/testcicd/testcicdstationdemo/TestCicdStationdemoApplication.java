@@ -18,15 +18,5 @@ public class TestCicdStationdemoApplication implements RepositoryRestConfigurer 
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         config.exposeIdsFor(Station.class);
     }
-
-    @Bean
-    public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
-        return http.authorizeExchange().pathMatchers("/actuator/**")
-                                       .permitAll()
-                                       .anyExchange()
-                                       .authenticated()
-                                       .and()
-                                       .build();
-    }
 }
 
