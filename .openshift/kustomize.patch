@@ -17,5 +17,6 @@
       httpGet:
         path: /management/stationdemo/health/StationHealthCheck
         port: 8080
-      failureThreshold: 20
+      initialDelaySeconds: 30
+      failureThreshold: 10
       periodSeconds: 10
