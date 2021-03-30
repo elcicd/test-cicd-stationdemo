@@ -15,7 +15,7 @@
   path: /objects/0/spec/template/spec/containers/0/readinessProbe
   value:
       httpGet:
-        path: /actuator/health/readiness
+        path: /management/stationdemo/health/StationHealthCheck
         port: 8080
       failureThreshold: 20
       periodSeconds: 10
