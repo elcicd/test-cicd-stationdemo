@@ -10,3 +10,13 @@
     description: Spring Boot server.servlet.context-path override
     displayName: server.servlet.context-path from application.properties
     name: SERVER_SERVLET_CONTEXT_PATH
+
+- op: add
+  path: /objects/0/spec/template/spec/containers/0/readinessProbe
+  value:
+    readinessProbe:
+      httpGet:
+        path: /actuator/health/readiness
+        port: 8080
+      failureThreshold: 20
+      periodSeconds: 10
