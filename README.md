@@ -2,8 +2,8 @@
 
 Spring Boot test project for el-cicd
 
-Station Queries: https://stationdemo-\<env>.apps-crc.testing/stationdemo-\<env>/stations
+Station Queries: https://stationdemo-lt;env>gt;.apps-crc.testing/stationdemo-lt;env>gt;/stations
 
-Health Check: https://stationdemo-\<env>.apps-crc.testing/stationdemo-\<env>/actuator/health/StationHealthCheck
+Health Check: https://stationdemo-lt;env>gt;.apps-crc.testing/stationdemo-lt;env>gt;/actuator/health/StationHealthCheck
 
-Prod: Remove '-\<env>' from above links
+Prod: Remove '-lt;env>gt;' from above links
