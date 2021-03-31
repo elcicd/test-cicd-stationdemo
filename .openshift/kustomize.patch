@@ -18,5 +18,5 @@
         path: /stationdemo-dev/actuator/health/StationHealthCheck
         port: 8080
       initialDelaySeconds: 30
-      failureThreshold: 10
-      periodSeconds: 10
+      failureThreshold: 50
+      periodSeconds: 5
