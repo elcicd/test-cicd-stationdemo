@@ -5,7 +5,7 @@
       value: ${SERVER_SERVLET_CONTEXT_PATH}
 
 - op: add
-  path: /parameters/0
+  path: /parameters/-
   value:
     description: Spring Boot server.servlet.context-path override
     displayName: server.servlet.context-path from application.properties
@@ -15,7 +15,7 @@
   path: /objects/0/spec/template/spec/containers/0/readinessProbe
   value:
       httpGet:
-        path: /stationdemo-dev/actuator/health/StationHealthCheck
+        path: ${SERVER_SERVLET_CONTEXT_PATH}/actuator/health/StationHealthCheck
         port: 8080
       initialDelaySeconds: 30
       failureThreshold: 50

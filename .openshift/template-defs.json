@@ -3,7 +3,7 @@
         {
             "appName": "stationdemo",
             "templateName": "deploy-svc-template",
-            "patchFile": "kustomize.patch",
+            "patchFile": "kustomize-default.patch",
             "params": {
                 "SVC_PORT": 8080
             },
