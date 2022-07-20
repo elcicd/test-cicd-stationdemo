@@ -1,0 +1,16 @@
+templates:
+- templateName: deploymentService
+  appName: stationdemo
+  env:
+  - name: SERVER_SERVLET_CONTEXT_PATH
+    value: /${MICROSERVICE_NAME}-${SLDC_ENV}
+  readinessProbs:
+    httpGet:
+      path: /${MICROSERVICE_NAME}-${SLDC_ENV}/actuator/health/StationHealthCheck
+      port: 8080
+    initialDelaySeconds: 30
+    failureThreshold: 50
+    periodSeconds: 5
+  prometheus:
+    port: 15345
+- templateName: ingress
