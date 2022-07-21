@@ -16,3 +16,4 @@ templates:
   prometheus:
     port: 15345
 - templateName: ingress
+  appName: stationdemo
