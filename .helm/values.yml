@@ -1,4 +1,4 @@
-templateVars:
+parameters:
   APP_NAME: stationdemo
 
 templates:
