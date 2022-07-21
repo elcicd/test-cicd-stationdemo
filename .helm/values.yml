@@ -4,7 +4,7 @@ templates:
   env:
   - name: SERVER_SERVLET_CONTEXT_PATH
     value: /${MICROSERVICE_NAME}-${SDLC_ENV}
-  readinessProbs:
+  readinessProbe:
     httpGet:
       path: /${MICROSERVICE_NAME}-${SDLC_ENV}/actuator/health/StationHealthCheck
       port: 8080
