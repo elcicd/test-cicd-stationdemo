@@ -20,3 +20,14 @@ templates:
     port: 15345
 - templateName: ingress
   appName: ${APP_NAME}
+  
+templates-prod:
+- templateName: deploymentService
+  appName: ${APP_NAME}
+  readinessProbe:
+    httpGet:
+      path: /${APP_NAME}/actuator/health/StationHealthCheck
+      port: 8080
+    initialDelaySeconds: 30
+    failureThreshold: 50
+    periodSeconds: 5
