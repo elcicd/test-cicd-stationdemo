@@ -11,6 +11,8 @@ templates:
     initialDelaySeconds: 30
     failureThreshold: 50
     periodSeconds: 5
+  limitsCpu: 500m
+  limitsMemory: 1000Mi
   prometheus:
     port: 15345
 - templateName: ingress
