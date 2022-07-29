@@ -1,34 +1,35 @@
-parameters:
-  APP_NAME: stationdemo
-  READINESS_PROBE:
-    httpGet:
-      path: /${APP_NAME}-${SDLC_ENV}/actuator/health/StationHealthCheck
-      port: 8080
-    initialDelaySeconds: 30
-    failureThreshold: 50
-    periodSeconds: 5
+elCicdChart:
+  parameters:
+    APP_NAME: stationdemo
+    READINESS_PROBE:
+      httpGet:
+        path: /${APP_NAME}-${SDLC_ENV}/actuator/health/StationHealthCheck
+        port: 8080
+      initialDelaySeconds: 30
+      failureThreshold: 50
+      periodSeconds: 5
 
-parameters-prod:
-  READINESS_PROBE:
-    httpGet:
-      path: /${APP_NAME}/actuator/health/StationHealthCheck
-      port: 8080
-    initialDelaySeconds: 30
-    failureThreshold: 50
-    periodSeconds: 5
+  parameters-prod:
+    READINESS_PROBE:
+      httpGet:
+        path: /${APP_NAME}/actuator/health/StationHealthCheck
+        port: 8080
+      initialDelaySeconds: 30
+      failureThreshold: 50
+      periodSeconds: 5
 
-templates:
-- templateName: deploymentService
-  appName: ${APP_NAME}
-  env:
-  - name: SERVER_SERVLET_CONTEXT_PATH
-    value: /${APP_NAME}-${SDLC_ENV}
-  readinessProbe:
-    ${READINESS_PROBE}
-  limitsCpu: 500m
-  limitsMemory: 1000Mi
-  prometheus:
-    port: 15345
+  templates:
+  - templateName: deploymentService
+    appName: ${APP_NAME}
+    env:
+    - name: SERVER_SERVLET_CONTEXT_PATH
+      value: /${APP_NAME}-${SDLC_ENV}
+    readinessProbe:
+      ${READINESS_PROBE}
+    limitsCpu: 500m
+    limitsMemory: 1000Mi
+    prometheus:
+      port: 15345
 
-- templateName: ingress
-  appName: ${APP_NAME}
+  - templateName: ingress
+    appName: ${APP_NAME}
