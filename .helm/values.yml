@@ -1,5 +1,5 @@
 elCicdChart:
-  parameters:
+  elcicdDefs:
     APP_NAME: stationdemo
     READINESS_PROBE:
       httpGet:
@@ -9,7 +9,7 @@ elCicdChart:
       failureThreshold: 50
       periodSeconds: 5
 
-  parameters-prod:
+  elcicdDefs-prod:
     READINESS_PROBE:
       httpGet:
         path: /${APP_NAME}/actuator/health/StationHealthCheck
