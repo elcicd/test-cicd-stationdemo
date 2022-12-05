@@ -18,7 +18,7 @@ elCicdDefs-prod:
     periodSeconds: 5
 
 elCicdTemplates:
-- templateName: deploymentService
+- templateName: deploymentServiceIngress
   appName: ${APP_NAME}
   env:
   - name: SERVER_SERVLET_CONTEXT_PATH
@@ -29,6 +29,3 @@ elCicdTemplates:
   limitsMemory: 1000Mi
   prometheus:
     port: 15345
-
-- templateName: ingress
-  appName: ${APP_NAME}
