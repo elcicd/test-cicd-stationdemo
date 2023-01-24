@@ -27,9 +27,10 @@ elCicdTemplates:
     value: /${APP_NAME}-${SDLC_ENV}
   readinessProbe:
     ${READINESS_PROBE}
-  limitsCpu: 500m
+  # limitsCpu: 500m
   limitsMemory: 1000Mi
   prometheus:
     port: 15345
 
 - templateName: ingress
+  
