@@ -28,7 +28,7 @@ elCicdTemplates:
   readinessProbe:
     ${READINESS_PROBE}
   limitsCpu: "1"
-  limitsMemory: 1000Mi
+  limitsMemory: 2000Mi
   prometheus:
     port: 15345
 
