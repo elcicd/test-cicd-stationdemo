@@ -27,7 +27,6 @@ elCicdTemplates:
     value: /${APP_NAME}-${SDLC_ENV}
   readinessProbe:
     ${READINESS_PROBE}
-  limitsCpu: "1"
   limitsMemory: 2000Mi
   prometheus:
     port: 15345
