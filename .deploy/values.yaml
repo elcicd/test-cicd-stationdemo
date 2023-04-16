@@ -1,11 +1,11 @@
 elCicdDefaults:
-  appName: stationdemo
+  objName: stationdemo
 
 elCicdDefs:
-  APP_NAME: stationdemo
+  OBJ_NAME: stationdemo
   READINESS_PROBE:
     httpGet:
-      path: /${APP_NAME}-${SDLC_ENV}/actuator/health/StationHealthCheck
+      path: /${OBJ_NAME}-${SDLC_ENV}/actuator/health/StationHealthCheck
       port: 8080
     initialDelaySeconds: 30
     failureThreshold: 50
@@ -14,7 +14,7 @@ elCicdDefs:
 elCicdDefs-prod:
   READINESS_PROBE:
     httpGet:
-      path: /${APP_NAME}/actuator/health/StationHealthCheck
+      path: /${OBJ_NAME}/actuator/health/StationHealthCheck
       port: 8080
     initialDelaySeconds: 30
     failureThreshold: 50
@@ -24,7 +24,7 @@ elCicdTemplates:
 - templateName: deploymentService
   env:
   - name: SERVER_SERVLET_CONTEXT_PATH
-    value: /${APP_NAME}-${SDLC_ENV}
+    value: /${OBJ_NAME}-${SDLC_ENV}
   readinessProbe:
     ${READINESS_PROBE}
   limitsMemory: 2000Mi
