@@ -2,33 +2,26 @@ elCicdDefaults:
   objName: stationdemo
 
 elCicdDefs:
+  ROOT_PATH: $<OBJ_NAME>-$<SDLC_ENV>
   OBJ_NAME: stationdemo
   READINESS_PROBE:
     httpGet:
-      path: /$<OBJ_NAME>-$<SDLC_ENV>/actuator/health/StationHealthCheck
+      path: /$<ROOT_PATH>/actuator/health/StationHealthCheck
       port: 8080
     initialDelaySeconds: 30
     failureThreshold: 50
     periodSeconds: 5
 
 elCicdDefs-prod:
-  READINESS_PROBE:
-    httpGet:
-      path: /$<OBJ_NAME>/actuator/health/StationHealthCheck
-      port: 8080
-    initialDelaySeconds: 30
-    failureThreshold: 50
-    periodSeconds: 5
+  ROOT_PATH: $<OBJ_NAME>
 
 elCicdTemplates:
-- templateName: deploymentService
+- templateName: deploymentServiceIngress
   env:
   - name: SERVER_SERVLET_CONTEXT_PATH
-    value: /$<OBJ_NAME>-$<SDLC_ENV>
+    value: /$<ROOT_PATH>
   readinessProbe:
     $<READINESS_PROBE>
   limitsMemory: 2000Mi
   prometheus:
     port: 15345
-
-- templateName: ingress
