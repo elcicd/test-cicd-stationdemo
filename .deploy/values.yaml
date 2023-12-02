@@ -1,10 +1,10 @@
 elCicdDefaults:
   objName: stationdemo
-  PORT: 8080
 
 elCicdDefs:
   ROOT_PATH: $<OBJ_NAME>-$<SDLC_ENV>
   OBJ_NAME: $<OBJ_NAME>
+  PORT: 8080
   READINESS_PROBE:
     httpGet:
       path: /$<ROOT_PATH>/actuator/health/StationHealthCheck
