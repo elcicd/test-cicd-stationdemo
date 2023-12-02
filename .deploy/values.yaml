@@ -1,9 +1,5 @@
-elCicdDefaults:
-  objName: stationdemo
-
 elCicdDefs:
   ROOT_PATH: $<OBJ_NAME>-$<SDLC_ENV>
-  OBJ_NAME: $<OBJ_NAME>
   PORT: 8080
   READINESS_PROBE:
     httpGet:
@@ -18,6 +14,7 @@ elCicdDefs-prod:
 
 elCicdTemplates:
 - templateName: deploymentServiceIngress
+  objName: stationdemo
   env:
   - name: SERVER_SERVLET_CONTEXT_PATH
     value: /$<ROOT_PATH>
