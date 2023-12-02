@@ -1,14 +1,15 @@
 elCicdDefaults:
   objName: stationdemo
+  PORT: 8080
 
 elCicdDefs:
   ROOT_PATH: $<OBJ_NAME>-$<SDLC_ENV>
-  OBJ_NAME: stationdemo
+  OBJ_NAME: $<OBJ_NAME>
   READINESS_PROBE:
     httpGet:
       path: /$<ROOT_PATH>/actuator/health/StationHealthCheck
-      port: 8080
-    initialDelaySeconds: 30
+      port: $<PORT>
+    initialDelaySeconds: 10
     failureThreshold: 50
     periodSeconds: 5
 
@@ -25,3 +26,15 @@ elCicdTemplates:
   limitsMemory: 2000Mi
   prometheus:
     port: 15345
+  rules:
+  - host: $<ROOT_PATH>.apps-crc.testing
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: $<OBJ_NAME>
+            port:
+              number: $<PORT>
+  
