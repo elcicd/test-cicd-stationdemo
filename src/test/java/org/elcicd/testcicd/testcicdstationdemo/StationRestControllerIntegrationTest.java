@@ -47,7 +47,7 @@ public class StationRestControllerIntegrationTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         
         JSONObject json = new JSONObject(response.getBody());
-        JSONArray responseArray = json.getJSONObject("_embedded").getJSONArray("stations");
+        JSONArray responseArray = json.getJSONObject("content").getJSONArray("stations");
         for (int i = 0; i < responseArray.length(); i++) {
             Station station = stations.get(i);
             JSONObject respObject = responseArray.getJSONObject(i);
