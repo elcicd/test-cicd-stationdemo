@@ -1,4 +1,4 @@
-FROM docker.io/adoptopenjdk:11-jre-hotspot
+FROM docker.io/adoptopenjdk:17-jre-hotspot
 
 VOLUME /tmp
 
