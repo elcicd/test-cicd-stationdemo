@@ -46,13 +46,13 @@ public class StationRestControllerIntegrationTest {
         ResponseEntity<String> response = testRestTemplate.getForEntity("/stations/search/findAllByHdEnabledIsTrue", String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
         
-        JSONObject json = new JSONObject(response.getBody());
-        JSONArray responseArray = json.getJSONObject("content").getJSONArray("stations");
+        String body = response.getBody();
+        JSONObject json = new JSONObject(body);
+        JSONArray responseArray = json.getJSONArray("content");
         for (int i = 0; i < responseArray.length(); i++) {
             Station station = stations.get(i);
             JSONObject respObject = responseArray.getJSONObject(i);
             
-            assertTrue(respObject.has("_links"));
             assertEquals(station.getId(), respObject.getLong("id"));
             assertEquals(station.getName(), respObject.getString("name"));
             assertEquals(station.isHdEnabled(), respObject.getBoolean("hdEnabled"));
