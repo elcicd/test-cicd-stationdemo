@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jre-ubi9-minimal
+FROM docker.io/eclipse-temurin:17-jre-ubi9-minimal
 
 VOLUME /tmp
 
