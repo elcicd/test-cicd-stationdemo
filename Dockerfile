@@ -1,4 +1,4 @@
-FROM docker.io/adoptopenjdk:17-jre-hotspot
+FROM eclipse-temurin:17-jre-ubi9-minimal
 
 VOLUME /tmp
 
