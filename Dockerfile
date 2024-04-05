@@ -13,12 +13,12 @@ COPY ${JAR_FILE} ${APP_DIR}/app.jar
 
 EXPOSE 8080
 
-USER 1001 
+USER 1001
 
-ENTRYPOINT [ \
-    "set -v && set && java", \
-    "-Djava.security.egd=file:/dev/./urandom", \
-    "-D--spring.config.location=file:/application.properties", \
-    "-jar", \
-    "${JAVA_APP_DIR}/app.jar" \
-]
+COPY --chmod=755 <<EOF ${APP_DIR}/entrypoint.sh
+    set -x
+    set
+    java  -Djava.security.egd=file:/dev/./urandom -D--spring.config.location=file:/application.properties -jar ${JAVA_APP_DIR}/app.jar
+EOF
+
+ENTRYPOINT [ "${JAVA_APP_DIR}/$entrypoint.sh" ]
