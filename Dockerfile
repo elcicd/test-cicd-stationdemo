@@ -21,4 +21,4 @@ COPY --chmod=755 <<EOF ${APP_DIR}/entrypoint.sh
     java  -Djava.security.egd=file:/dev/./urandom -D--spring.config.location=file:/application.properties -jar ${JAVA_APP_DIR}/app.jar
 EOF
 
-ENTRYPOINT [ "${JAVA_APP_DIR}/$entrypoint.sh" ]
+ENTRYPOINT [ "${JAVA_APP_DIR}/entrypoint.sh" ]
