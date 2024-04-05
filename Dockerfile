@@ -16,9 +16,7 @@ EXPOSE 8080
 USER 1001 
 
 ENTRYPOINT [ \
-    "set -x;", \
-    "set;", \
-    "java", \
+    "set -v && set && java", \
     "-Djava.security.egd=file:/dev/./urandom", \
     "-D--spring.config.location=file:/application.properties", \
     "-jar", \
