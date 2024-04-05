@@ -7,11 +7,15 @@ USER root
 
 ARG JAR_FILE=target/*.jar
 ARG APP_DIR=/app
+ENV JAVA_APP_DIR=${JAVA_APP_DIR}
+
 COPY ${JAR_FILE} ${APP_DIR}/app.jar
 
 EXPOSE 8080
 
 USER 1001 
 
-ENTRYPOINT ["java"]
-CMD ["-Djava.security.egd=file:/dev/./urandom", "--spring.config.location=file:/application.properties","-jar ${APP_DIR}/app.jar"]
+ENTRYPOINT ["java",
+            "-Djava.security.egd=file:/dev/./urandom --spring.config.location=file:/application.properties",
+            "-jar",
+            "${JAVA_APP_DIR}/app.jar"]
