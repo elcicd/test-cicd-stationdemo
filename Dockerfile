@@ -18,7 +18,7 @@ USER 1001
 COPY --chmod=755 <<EOF ${APP_DIR}/entrypoint.sh
     #!/usr/bin/env sh
     set -x
-    java  -Djava.security.egd=file:/dev/./urandom -Dlogging.level.org.springframework=TRACE -jar ${JAVA_APP_DIR}/app.jar
+    java  -Djava.security.egd=file:/dev/./urandom -jar ${JAVA_APP_DIR}/app.jar
 EOF
 
 ENTRYPOINT ${JAVA_APP_DIR}/entrypoint.sh
