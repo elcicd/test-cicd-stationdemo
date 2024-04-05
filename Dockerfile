@@ -7,7 +7,7 @@ USER root
 
 ARG JAR_FILE=target/*.jar
 ARG APP_DIR=/app
-ENV JAVA_APP_DIR=${JAVA_APP_DIR}
+ENV JAVA_APP_DIR=${APP_DIR}
 
 COPY ${JAR_FILE} ${APP_DIR}/app.jar
 
