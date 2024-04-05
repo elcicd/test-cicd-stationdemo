@@ -13,5 +13,5 @@ EXPOSE 8080
 
 USER 1001 
 
-ENTRYPOINT java
+ENTRYPOINT ["java"]
 CMD ["-Djava.security.egd=file:/dev/./urandom", "--spring.config.location=file:/application.properties","-jar ${APP_DIR}/app.jar"]
