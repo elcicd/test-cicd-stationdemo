@@ -13,7 +13,7 @@ elCicdDefs-prod:
   ROOT_PATH: $<OBJ_NAME>
 
 elCicdTemplates:
-- templateName: deploymentServiceIngress
+- templateName: deployment|service|ingress
   objName: stationdemo
   env:
   - name: SERVER_SERVLET_CONTEXT_PATH
