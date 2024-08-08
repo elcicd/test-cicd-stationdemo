@@ -9,14 +9,11 @@ elCicdDefs:
     failureThreshold: 50
     periodSeconds: 5
 
-elCicdDefs-prod:
+elCicdDefs-PROD:
   ROOT_PATH: $<OBJ_NAME>
 
 elCicdTemplates:
-- templateNames:
-  - deployment
-  - service
-  - ingress
+- templateNames: [deployment, service, ingress]
   objName: stationdemo
   env:
   - name: SERVER_SERVLET_CONTEXT_PATH
